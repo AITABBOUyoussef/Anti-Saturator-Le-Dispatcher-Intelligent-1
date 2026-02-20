@@ -1,14 +1,19 @@
-import { getTasks } from "./storage.js";
-import {headerfunc,formulair, button,supprimer} from "./src/moules/ui.js";
+// src/app.js
+import { getTasks } from "./modules/storage.js"; // ISLAH: Zid /modules/
+import { headerfunc, formulair, button, supprimer } from "./modules/ui.js"; // ISLAH: Zid /modules/
+import { initFormLogic } from "./modules/formular.js"; // Path s-hih
+
 const main = document.querySelector(".main");
 
-main.innerHTML = `
-${headerfunc()}
-${formulair()}
-${button()}
-${supprimer()}
+if (main) {
+    // 1. Rsem l-HTML f-l-lowel
+    main.innerHTML = `
+        ${headerfunc()}
+        ${formulair()}
+       
+        ${supprimer()}
+    `;
 
-`
-
-const tasks = getTasks();
-console.log(tasks);
+    // 2. DABA 3AD khddem l-logic (Mnin les elements wellaw moujoudin)
+    initFormLogic();
+}
